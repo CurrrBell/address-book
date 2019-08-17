@@ -17,6 +17,10 @@ export class LoginComponent implements OnInit {
     private readonly authService: AuthService) { }
 
   ngOnInit() {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['']);
+    }
+
     const passwordValidators = [
       // Validators.required
     ];

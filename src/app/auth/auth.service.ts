@@ -9,7 +9,7 @@ export class AuthService {
   private authenticated$: BehaviorSubject<boolean>;
 
   constructor() {
-    this.authenticated$ = new BehaviorSubject(false);
+    this.authenticated$ = new BehaviorSubject(true);
 
   }
 
