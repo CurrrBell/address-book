@@ -9,7 +9,7 @@ export class AuthService {
   private authenticated$: BehaviorSubject<boolean>;
 
   constructor() {
-    this.authenticated$ = new BehaviorSubject(false);
+    this.authenticated$ = new BehaviorSubject(true);
 
   }
 
@@ -21,6 +21,9 @@ export class AuthService {
   }
 
   getUser(): string {
+    if (this.username === undefined) {
+      return 'username';
+    }
     return this.username;
   }
 

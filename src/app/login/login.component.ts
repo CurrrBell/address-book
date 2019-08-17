@@ -17,8 +17,12 @@ export class LoginComponent implements OnInit {
     private readonly authService: AuthService) { }
 
   ngOnInit() {
-    const passwordValidators = [Validators.required];
-    const usernameValidators = [Validators.required];
+    const passwordValidators = [
+      // Validators.required
+    ];
+    const usernameValidators = [
+      // Validators.required
+    ];
 
     this.loginForm = this.formBuilder.group({
       username: ['', usernameValidators],

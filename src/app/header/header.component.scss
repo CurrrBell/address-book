@@ -1,0 +1,9 @@
+@import "../../scss/variables.scss";
+
+nav {
+  height: 60px;
+
+  color: #fff;
+  background-color: $primary;
+  box-shadow: $shadow-height-1;
+}
