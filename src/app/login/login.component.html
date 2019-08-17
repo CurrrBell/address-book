@@ -1,5 +1,10 @@
-<p>
-  login works!
-</p>
-
-<button (click)="login()">login</button>
+<div class="card">
+  <header>
+    <h1>Contactz</h1>
+  </header>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="username" placeholder="Username" />
+    <input type="password" formControlName="password" placeholder="Password" />
+    <button type="submit">login</button>
+  </form>
+</div>
