@@ -7,4 +7,5 @@ export type Contact = {
   profilePictureSrc: string,
   company: string,
   phoneNumbers: PhoneNumber[];
+  active: boolean;
 };

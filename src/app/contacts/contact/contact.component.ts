@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostBinding, HostListener, Output, EventEmitter } from '@angular/core';
 import { Contact } from '../contact';
+import { SelectedContactService } from '../selected-contact/selected-contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -8,12 +9,16 @@ import { Contact } from '../contact';
 })
 export class ContactComponent implements OnInit {
   @Input() contact: Contact;
+  @HostBinding('class.active') active = false;
 
-  constructor() {
-
+  constructor(private readonly selectedContactService: SelectedContactService) {
   }
 
   ngOnInit() {
   }
 
+  @HostListener('click')
+  select() {
+    this.selectedContactService.select(this.contact);
+  }
 }

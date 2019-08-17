@@ -1,0 +1,21 @@
+@import "../../../scss/variables.scss";
+
+:host {
+  display: block;
+  padding: 10px 30px;
+  height: 64px;
+}
+
+:host.active,
+:host.active:hover {
+  background-color: $secondary;
+}
+
+:host:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+div {
+  height: 100%;
+}
