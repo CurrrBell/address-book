@@ -1,8 +1,12 @@
+@import "../../../scss/variables.scss";
+
 :host {
   min-width: 400px;
   z-index: 2;
-}
 
-.card {
-  height: 100%;
+  padding: 20px;
+
+  background-color: #fff;
+
+  box-shadow: $shadow-height-1;
 }
