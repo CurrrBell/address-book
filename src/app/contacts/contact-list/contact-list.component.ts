@@ -9,7 +9,34 @@ import { Contact } from '../contact';
 export class ContactListComponent implements OnInit {
   contacts: Contact[];
 
-  constructor() { }
+  constructor() {
+    this.contacts = [
+      {
+        firstName: 'alice',
+        lastName: 'test',
+        salutation: 'ms',
+        profilePictureSrc: '',
+        company: 'acculynx',
+        phoneNumbers: [{ number: '5', type: 'home' }]
+      },
+      {
+        firstName: 'alice',
+        lastName: 'test',
+        salutation: 'ms',
+        profilePictureSrc: '',
+        company: 'acculynx',
+        phoneNumbers: [{ number: '5', type: 'home' }]
+      },
+      {
+        firstName: 'alice',
+        lastName: 'test',
+        salutation: 'ms',
+        profilePictureSrc: '',
+        company: 'acculynx',
+        phoneNumbers: [{ number: '5', type: 'home' }]
+      }
+    ];
+  }
 
   ngOnInit() {
   }

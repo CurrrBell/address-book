@@ -1,0 +1,8 @@
+<div *ngFor="let item of data">
+  <ng-container *ngTemplateOutlet="itemTemplate; context:{$implicit: item}">
+  </ng-container>
+</div>
+
+<ng-template #empty>
+  no data
+</ng-template>

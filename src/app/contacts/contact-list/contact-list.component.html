@@ -1,6 +1,5 @@
-<div class="contacts-container" *ngIf="contacts else empty">
+<app-list [data]="contacts" [itemTemplate]="itemTemplate"></app-list>
 
-</div>
-<ng-template #empty>
-  no contacts
+<ng-template #itemTemplate let-contact>
+  <app-contact [contact]="contact"></app-contact>
 </ng-template>

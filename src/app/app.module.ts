@@ -9,6 +9,8 @@ import { ContactListComponent } from './contacts/contact-list/contact-list.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
+import { ListComponent } from './list/list.component';
+import { ContactComponent } from './contacts/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ContactDetailsComponent } from './contacts/contact-details/contact-deta
     HeaderComponent,
     ContactListComponent,
     ContactsComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
+    ListComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
