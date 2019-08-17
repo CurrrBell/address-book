@@ -1,4 +1,6 @@
-<p>
-  contact-details works!
-</p>
-<!-- <app-contact-photo [src]="test"></app-contact-photo> -->
+<ng-container *ngIf="contact else empty">
+  {{contact.firstName}}
+</ng-container>
+<ng-template #empty>
+  No contact
+</ng-template>
