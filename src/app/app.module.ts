@@ -7,13 +7,17 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactsComponent } from './contacts/contacts.component';
+import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    ContactListComponent
+    ContactListComponent,
+    ContactsComponent,
+    ContactDetailsComponent
   ],
   imports: [
     BrowserModule,
