@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: ContactsComponent, canActivate: [AuthGuard] },
+  { path: '', loadChildren: './contacts/contacts.module#ContactsModule' },
   { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '' }
 ];

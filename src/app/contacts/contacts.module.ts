@@ -6,6 +6,8 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
 import { ContactComponent } from './contact/contact.component';
 import { ContactPhotoComponent } from './contact-photo/contact-photo.component';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { routes } from './contacts-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule.forChild(routes)
   ],
   exports: [
     ContactComponent,
