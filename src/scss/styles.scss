@@ -2,6 +2,19 @@
 
 html {
   font-family: "Open Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.card {
+  min-width: 400px;
+  min-height: 300px;
+
+  padding: 20px;
+
+  background-color: #fff;
+  border-radius: 5px;
+
+  box-shadow: $shadow-height-1;
 }
 
 @media only screen and (max-width: $mobile-cutoff) {

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>AddressBook</title>
@@ -10,17 +11,24 @@
   <style>
     html,
     body {
-      min-width: 100%;
+      width: 100%;
       min-height: 100vh;
       margin: 0;
       background: whitesmoke;
     }
-    html {
-      overflow-y: scroll;
+
+    main {
+      height: calc(100vh - 60px);
+      padding-top: 60px;
+
+      /* for whatever reason IE treats <main> elements as inline */
+      display: block;
     }
   </style>
 </head>
+
 <body>
   <app-root></app-root>
 </body>
+
 </html>

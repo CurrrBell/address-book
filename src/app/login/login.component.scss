@@ -8,17 +8,7 @@
 }
 
 .card {
-  min-width: 400px;
-  min-height: 300px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  padding: 20px;
-
-  background-color: #fff;
-  border-radius: 5px;
-
-  box-shadow: $shadow-height-1;
 }
