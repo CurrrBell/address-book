@@ -5,28 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
-import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ContactsComponent } from './contacts/contacts.component';
-import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
-import { ListComponent } from './list/list.component';
-import { ContactComponent } from './contacts/contact/contact.component';
+import { ContactsModule } from './contacts/contacts.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HeaderComponent,
-    ContactListComponent,
-    ContactsComponent,
-    ContactDetailsComponent,
-    ListComponent,
-    ContactComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
+    ContactsModule,
     AppRoutingModule
   ],
   providers: [],
