@@ -4,10 +4,27 @@
 
 <app-list [data]="contacts" [itemTemplate]="itemTemplate"></app-list>
 
-<button class="fab-button" (click)="addContact()">
+<button class="fab-button" (click)="modal.show()">
   <i class="material-icons">person_add</i>
 </button>
 
 <ng-template #itemTemplate let-contact>
   <app-contact [contact]="contact"></app-contact>
 </ng-template>
+
+
+<app-modal #modal>
+  <header class="app-modal-header">
+    <h1>Add Contact</h1>
+  </header>
+  <form [formGroup]="addContactForm" (ngSubmit)="onSubmit()" class="app-modal-body">
+    <input type="text" formControlName="photo" placeholder="Photo">
+    <input type="text" formControlName="salutation" placeholder="Salutation">
+    <input type="text" formControlName="firstName" placeholder="First Name">
+    <input type="text" formControlName="lastName" placeholder="Last Name">
+    <input type="text" formControlName="company" placeholder="Company">
+    <input type="text" formControlName="phone" placeholder="Phone">
+    <button type="button" class="" (click)="modal.hide()">Close</button>
+    <button type="submit" class="" (click)="modal.hide()">Save</button>
+  </form>
+</app-modal>

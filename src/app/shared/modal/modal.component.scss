@@ -1,0 +1,31 @@
+@import "../../../scss/variables.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+
+  height: 100%;
+  width: 100%;
+  top: 0;
+
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s;
+
+  z-index: 999;
+}
+
+:host.hidden {
+  display: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.modal {
+  background-color: #fff;
+  min-width: 400px;
+  min-height: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: $shadow-height-2;
+}

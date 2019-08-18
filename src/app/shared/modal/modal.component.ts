@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, HostBinding, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -6,26 +6,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
-  public visible = false;
+  @Output() submitted = new EventEmitter<any>();
   public visibleAnimate = false;
+  @HostBinding('class.hidden') hidden = true;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  public show(): void {
-    this.visible = true;
+  show(): void {
+    this.hidden = false;
     setTimeout(() => this.visibleAnimate = true, 100);
   }
 
-  public hide(): void {
+  hide(): void {
     this.visibleAnimate = false;
-    setTimeout(() => this.visible = false, 300);
+    setTimeout(() => this.hidden = true, 300);
   }
 
-  public onContainerClicked(event: MouseEvent): void {
-    if ((event.target as HTMLElement).classList.contains('modal')) {
+  submit(payload: any) {
+    this.submitted.emit(payload);
+  }
+
+  @HostListener('click', ['$event'])
+  onContainerClicked(event: MouseEvent): void {
+    if ((event.target as HTMLElement).tagName === 'APP-MODAL') {
       this.hide();
     }
   }

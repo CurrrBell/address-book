@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Contact } from '../contact';
 import { SelectedContactService } from '../selected-contact/selected-contact.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-list',
@@ -10,8 +11,13 @@ import { SelectedContactService } from '../selected-contact/selected-contact.ser
 export class ContactListComponent implements OnInit {
   contacts: Contact[];
   selectedContact: Contact;
+  addContactForm: FormGroup;
 
-  constructor(private readonly selectedContactService: SelectedContactService) {
+  constructor(
+    private readonly selectedContactService: SelectedContactService,
+    private readonly formBuilder: FormBuilder,
+    private readonly changeDetectorRef: ChangeDetectorRef
+  ) {
     this.contacts = [
       {
         firstName: 'Alice',
@@ -62,6 +68,15 @@ export class ContactListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.addContactForm = this.formBuilder.group({
+      photo: [''],
+      salutation: [''],
+      firstName: [''],
+      lastName: [''],
+      company: [''],
+      phone: [''],
+    });
+
     this.selectedContactService.selectedContact()
       .subscribe(contact => {
         if (contact) {
@@ -75,7 +90,18 @@ export class ContactListComponent implements OnInit {
       });
   }
 
-  addContact() {
-    console.log('add');
+  onSubmit() {
+    const formFields = this.addContactForm.controls;
+    this.contacts.push({
+      profilePictureSrc: formFields.photo.value === '' ? '../../../assets/contact-photos/default-profile.png' : formFields.photo.value,
+      salutation: formFields.salutation.value,
+      firstName: formFields.firstName.value,
+      lastName: formFields.lastName.value,
+      company: '',
+      phoneNumbers: [formFields.phone.value],
+      active: false
+    });
+
+    this.changeDetectorRef.detectChanges();
   }
 }
