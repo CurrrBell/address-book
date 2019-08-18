@@ -75,4 +75,7 @@ export class ContactListComponent implements OnInit {
       });
   }
 
+  addContact() {
+    console.log('add');
+  }
 }

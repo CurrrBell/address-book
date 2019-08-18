@@ -4,6 +4,10 @@
 
 <app-list [data]="contacts" [itemTemplate]="itemTemplate"></app-list>
 
+<button class="fab-button" (click)="addContact()">
+  <i class="material-icons">person_add</i>
+</button>
+
 <ng-template #itemTemplate let-contact>
   <app-contact [contact]="contact"></app-contact>
 </ng-template>
