@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import { ResponsiveService } from './shared/responsive-service/responsive.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,18 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent implements OnInit {
   authenticated = false;
 
-  constructor(private readonly authService: AuthService) { }
+  constructor(
+    private readonly authService: AuthService,
+    private readonly responsiveService: ResponsiveService) { }
 
   ngOnInit() {
     this.authService.authenticated().subscribe(isAuth => {
       this.authenticated = isAuth;
     });
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.responsiveService.checkWidth();
   }
 }

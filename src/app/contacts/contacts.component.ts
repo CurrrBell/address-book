@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResponsiveService } from '../shared/responsive-service/responsive.service';
 
 @Component({
   selector: 'app-contacts',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contacts.component.scss']
 })
 export class ContactsComponent implements OnInit {
+  isMobile: boolean;
 
-  constructor() { }
+  constructor(private readonly responsiveService: ResponsiveService) { }
 
   ngOnInit() {
+    this.responsiveService.mobile().subscribe(isMobile => {
+      this.isMobile = isMobile;
+    });
   }
 
 }

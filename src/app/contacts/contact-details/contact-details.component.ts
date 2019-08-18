@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectedContactService } from '../selected-contact/selected-contact.service';
 import { Contact } from '../contact';
+import { ResponsiveService } from 'src/app/shared/responsive-service/responsive.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-details',
@@ -9,7 +11,13 @@ import { Contact } from '../contact';
 })
 export class ContactDetailsComponent implements OnInit {
   contact: Contact;
-  constructor(private readonly selectedContactService: SelectedContactService) { }
+  isMobile: boolean;
+
+  constructor(
+    private readonly router: Router,
+    private readonly selectedContactService: SelectedContactService,
+    private readonly responsiveService: ResponsiveService
+  ) { }
 
   ngOnInit() {
     this.selectedContactService.selectedContact()
@@ -18,6 +26,15 @@ export class ContactDetailsComponent implements OnInit {
           this.contact = contact;
         }
       });
+
+    this.responsiveService.mobile()
+      .subscribe(isMobile => {
+        this.isMobile = isMobile;
+      });
+  }
+
+  goBack() {
+    this.router.navigate(['']);
   }
 
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, HostBinding, HostListener, Output, EventEmitter } from '@angular/core';
 import { Contact } from '../contact';
 import { SelectedContactService } from '../selected-contact/selected-contact.service';
+import { ResponsiveService } from 'src/app/shared/responsive-service/responsive.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -11,8 +13,11 @@ export class ContactComponent implements OnInit {
   @Input() contact: Contact;
   @HostBinding('class.active') active = false;
 
-  constructor(private readonly selectedContactService: SelectedContactService) {
-  }
+  constructor(
+    private readonly router: Router,
+    private readonly selectedContactService: SelectedContactService,
+    private readonly responsiveService: ResponsiveService
+  ) { }
 
   ngOnInit() {
   }
@@ -20,5 +25,9 @@ export class ContactComponent implements OnInit {
   @HostListener('click')
   select() {
     this.selectedContactService.select(this.contact);
+
+    if (this.responsiveService.isMobile()) {
+      this.router.navigate(['details']);
+    }
   }
 }
