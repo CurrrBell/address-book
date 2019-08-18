@@ -1,4 +1,15 @@
 <nav>
-  Contacts
   {{username}}
+  <i class="material-icons" (click)="modal.show()">settings</i>
 </nav>
+
+<app-modal #modal>
+  <header class="app-modal-header">
+    <h1>Settings</h1>
+  </header>
+  <form [formGroup]="userSettingsForm" (ngSubmit)="onSubmit()" class="app-modal-body">
+    <input type="text" formControlName="username" placeholder="Photo">
+    <button type="button" class="" (click)="modal.hide()">Close</button>
+    <button type="submit" class="" (click)="modal.hide()">Save</button>
+  </form>
+</app-modal>
