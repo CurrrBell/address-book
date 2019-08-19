@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-contact-photo',
@@ -6,7 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./contact-photo.component.scss']
 })
 export class ContactPhotoComponent implements OnInit {
-  @Input() src: string;
+  @Input() readonly src: string;
+  @HostBinding('class') class = 'contact-photo';
 
   constructor() { }
 

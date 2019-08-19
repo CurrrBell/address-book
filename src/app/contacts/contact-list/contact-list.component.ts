@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { Contact } from '../contact';
+import { Contact } from '../types/contact';
 import { SelectedContactService } from '../selected-contact/selected-contact.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
@@ -12,6 +12,7 @@ export class ContactListComponent implements OnInit {
   contacts: Contact[];
   selectedContact: Contact;
   addContactForm: FormGroup;
+  noDataMessage = 'No contacts to show';
 
   constructor(
     private readonly selectedContactService: SelectedContactService,
@@ -21,47 +22,73 @@ export class ContactListComponent implements OnInit {
     this.contacts = [
       {
         firstName: 'Alice',
-        lastName: 'test',
-        salutation: 'ms',
+        lastName: 'Glass',
+        salutation: 'Ms.',
         profilePictureSrc: '../../../assets/contact-photos/contact-1.jpg',
-        company: 'acculynx',
-        phoneNumbers: [{ number: '5', type: 'home' }],
+        company: 'AccuLynx',
+        phoneNumbers: [
+          { number: '5', type: 'Home' },
+          { number: '7', type: 'Work' },
+          { number: '9', type: 'Cell' }
+        ],
         active: false
       },
       {
         firstName: 'Bob',
-        lastName: 'test',
-        salutation: 'ms',
+        lastName: 'Kraft',
+        salutation: 'Mr.',
         profilePictureSrc: '../../../assets/contact-photos/contact-2.jpg',
-        company: 'acculynx',
-        phoneNumbers: [{ number: '5', type: 'home' }],
+        company: 'AccuLynx',
+        phoneNumbers: [
+          { number: '5', type: 'Home' },
+          { number: '7', type: 'Work' },
+          { number: '9', type: 'Cell' }
+        ],
         active: false
       },
       {
         firstName: 'Charlie',
-        lastName: 'test',
-        salutation: 'ms',
+        lastName: 'Sheen',
+        salutation: 'Mr.',
         profilePictureSrc: '../../../assets/contact-photos/contact-3.jpg',
-        company: 'acculynx',
-        phoneNumbers: [{ number: '5', type: 'home' }],
+        company: 'AccuLynx',
+        phoneNumbers: [
+          { number: '584-231-4848', type: 'Home' },
+          { number: '7', type: 'Work' },
+          { number: '9', type: 'Cell' },
+          { number: '5', type: 'Home' },
+          { number: '7', type: 'Work' },
+          { number: '9', type: 'Cell' },
+          { number: '5', type: 'Home' },
+          { number: '7', type: 'Work' },
+          { number: '9', type: 'Cell' }
+        ],
         active: false
       },
       {
         firstName: 'Dan',
-        lastName: 'test',
-        salutation: 'ms',
+        lastName: 'Patrick',
+        salutation: 'Mr.',
         profilePictureSrc: '../../../assets/contact-photos/contact-4.jpg',
-        company: 'acculynx',
-        phoneNumbers: [{ number: '5', type: 'home' }],
+        company: 'AccuLynx',
+        phoneNumbers: [
+          { number: '5', type: 'Home' },
+          { number: '7', type: 'Work' },
+          { number: '9', type: 'Cell' }
+        ],
         active: false
       },
       {
         firstName: 'Evan',
-        lastName: 'test',
-        salutation: 'ms',
+        lastName: 'Engram',
+        salutation: 'Mr.',
         profilePictureSrc: '../../../assets/contact-photos/contact-5.jpg',
-        company: 'acculynx',
-        phoneNumbers: [{ number: '5', type: 'home' }],
+        company: 'AccuLynx',
+        phoneNumbers: [
+          { number: '5', type: 'Home' },
+          { number: '7', type: 'Work' },
+          { number: '9', type: 'Cell' }
+        ],
         active: false
       }
     ];

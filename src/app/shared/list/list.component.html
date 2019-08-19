@@ -1,8 +1,9 @@
-<ng-container *ngFor="let item of data">
-  <ng-container *ngTemplateOutlet="itemTemplate; context:{$implicit: item}">
+<ng-container *ngIf="data else empty">
+  <ng-container *ngFor="let item of data">
+    <ng-container *ngTemplateOutlet="itemTemplate; context:{$implicit: item}">
+    </ng-container>
   </ng-container>
 </ng-container>
-
 <ng-template #empty>
-  no data
+  {{noDataMessage}}
 </ng-template>

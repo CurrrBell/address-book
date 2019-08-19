@@ -1,4 +1,10 @@
 <app-contact-photo [src]="contact.profilePictureSrc"></app-contact-photo>
-<span>
-  {{contact.firstName}}
-</span>
+<div class="personal-info">
+  <span class="name">{{contact.salutation + ' ' + contact.firstName + ' ' + contact.lastName}}</span>
+  <span>{{contact.company}}</span>
+</div>
+<div class="contact-info">
+  <span *ngFor="let phoneNumber of contact.phoneNumbers">
+    {{phoneNumber.type + ': ' + phoneNumber.number}}
+  </span>
+</div>

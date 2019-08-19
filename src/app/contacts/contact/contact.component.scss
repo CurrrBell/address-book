@@ -1,9 +1,10 @@
 @import "../../../scss/variables.scss";
 
 :host {
-  display: block;
+  display: grid;
+  grid-template-columns: 150px 300px 1fr;
+  grid-template-rows: 128px;
   padding: 10px 30px;
-  height: 64px;
 }
 
 :host.active,
@@ -16,6 +17,24 @@
   cursor: pointer;
 }
 
-div {
+:host * {
+  margin-right: 24px;
+}
+
+.personal-info {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }

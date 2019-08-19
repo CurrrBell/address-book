@@ -2,7 +2,7 @@
   <h1>Contacts</h1>
 </header>
 
-<app-list [data]="contacts" [itemTemplate]="itemTemplate"></app-list>
+<app-list [data]="contacts" [itemTemplate]="itemTemplate" [noDataMessage]="noDataMessage"></app-list>
 
 <button class="fab-button" (click)="modal.show()">
   <i class="material-icons">person_add</i>
