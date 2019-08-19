@@ -102,7 +102,7 @@ export class ContactListComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       company: [''],
-      phone: ['', Validators.required],
+      phone: ['', Validators.required]
     });
 
     this.selectedContactService.selectedContact()
@@ -132,8 +132,8 @@ export class ContactListComponent implements OnInit {
       salutation: formFields.salutation.value,
       firstName: formFields.firstName.value,
       lastName: formFields.lastName.value,
-      company: '',
-      phoneNumbers: [formFields.phone.value],
+      company: formFields.company.value,
+      phoneNumbers: [{ number: formFields.phone.value, type: 'home', isPrimary: false }],
       active: false
     });
 

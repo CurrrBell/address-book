@@ -21,9 +21,9 @@ export class ResponsiveService {
 
   checkWidth(): void {
     // * only fire the observables if it's a _change_ to isMobile
-    if (window.innerWidth <= 768 && this.mobile$.value === false) {
+    if (window.innerWidth <= 1024 && this.mobile$.value === false) {
       this.mobile$.next(true);
-    } else if (window.innerWidth > 768 && this.mobile$.value === true) {
+    } else if (window.innerWidth > 1024 && this.mobile$.value === true) {
       this.mobile$.next(false);
     }
   }
