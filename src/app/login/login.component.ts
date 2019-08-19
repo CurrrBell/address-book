@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../shared/auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  submitted = false;
 
   constructor(
     private readonly router: Router,
@@ -21,12 +22,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['']);
     }
 
-    const passwordValidators = [
-      // Validators.required
-    ];
-    const usernameValidators = [
-      // Validators.required
-    ];
+    const passwordValidators = [Validators.required];
+    const usernameValidators = [Validators.required];
 
     this.loginForm = this.formBuilder.group({
       username: ['', usernameValidators],
@@ -35,6 +32,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
+
     if (this.loginForm.invalid) {
       return;
     }

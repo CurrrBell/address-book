@@ -1,5 +1,38 @@
 @import "./variables.scss";
 
+button {
+  background-color: #fff;
+
+  min-width: 64px;
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: $rounded-corner;
+
+  transition: box-shadow 0.3s;
+  box-shadow: $shadow-height-1;
+}
+
+button:focus,
+button:active {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: $shadow-height-2;
+}
+
+button.primary {
+  background-color: $primary;
+  color: #fff;
+}
+
+button.secondary {
+  background-color: $secondary;
+  color: inherit;
+}
+
 .fab-button {
   color: inherit;
   background-color: $secondary;

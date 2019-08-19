@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { AuthService } from './auth/auth.service';
+import { AuthService } from './shared/auth/auth.service';
 import { ResponsiveService } from './shared/responsive-service/responsive.service';
 
 @Component({

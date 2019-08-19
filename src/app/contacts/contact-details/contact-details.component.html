@@ -1,5 +1,7 @@
 <ng-container *ngIf="contact else empty">
-  <button *ngIf="isMobile" (click)="goBack()">back</button>
+  <button (click)="goBack()">back</button>
+  <button class="primary" (click)="goBack()">back</button>
+  <button class="secondary" (click)="goBack()">back</button>
   {{contact.firstName}}
 </ng-container>
 <ng-template #empty>

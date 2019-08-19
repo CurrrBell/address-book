@@ -1,5 +1,6 @@
 @import "./variables.scss";
 @import "./buttons.scss";
+@import "./forms.scss";
 
 html {
   font-family: "Open Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -8,6 +9,10 @@ html {
 
 .fade {
   transition: opacity 0.3s;
+}
+
+.hidden {
+  opacity: 0;
 }
 
 @media only screen and (max-width: $mobile-cutoff) {

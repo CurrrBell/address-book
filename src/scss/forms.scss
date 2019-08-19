@@ -1,0 +1,33 @@
+@import "./variables.scss";
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 16px 0;
+}
+
+form input {
+  height: 24px;
+
+  margin-top: 16px;
+  padding: 2px 8px;
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: $tight-corner;
+}
+
+form input:focus {
+  outline-color: $secondary;
+}
+
+form button {
+  margin-top: 16px;
+}
+
+form .error-text {
+  font-size: 12px;
+  color: red;
+  align-self: flex-start;
+}
