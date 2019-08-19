@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Contact } from '../types/contact';
 import { SelectedContactService } from '../selected-contact/selected-contact.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-list',
@@ -12,6 +12,7 @@ export class ContactListComponent implements OnInit {
   contacts: Contact[];
   selectedContact: Contact;
   addContactForm: FormGroup;
+  submitted = false;
   noDataMessage = 'No contacts to show';
 
   constructor(
@@ -27,9 +28,9 @@ export class ContactListComponent implements OnInit {
         profilePictureSrc: '../../../assets/contact-photos/contact-1.jpg',
         company: 'test',
         phoneNumbers: [
-          { number: '5', type: 'Home' },
-          { number: '7', type: 'Work' },
-          { number: '9', type: 'Cell' }
+          { number: '5', type: 'Home', isPrimary: false },
+          { number: '7', type: 'Work', isPrimary: false },
+          { number: '9', type: 'Cell', isPrimary: false }
         ],
         active: false
       },
@@ -40,9 +41,9 @@ export class ContactListComponent implements OnInit {
         profilePictureSrc: '../../../assets/contact-photos/contact-2.jpg',
         company: 'test',
         phoneNumbers: [
-          { number: '5', type: 'Home' },
-          { number: '7', type: 'Work' },
-          { number: '9', type: 'Cell' }
+          { number: '5', type: 'Home', isPrimary: false },
+          { number: '7', type: 'Work', isPrimary: false },
+          { number: '9', type: 'Cell', isPrimary: false }
         ],
         active: false
       },
@@ -53,15 +54,15 @@ export class ContactListComponent implements OnInit {
         profilePictureSrc: '../../../assets/contact-photos/contact-3.jpg',
         company: 'test',
         phoneNumbers: [
-          { number: '584-231-4848', type: 'Home' },
-          { number: '7', type: 'Work' },
-          { number: '9', type: 'Cell' },
-          { number: '5', type: 'Home' },
-          { number: '7', type: 'Work' },
-          { number: '9', type: 'Cell' },
-          { number: '5', type: 'Home' },
-          { number: '7', type: 'Work' },
-          { number: '9', type: 'Cell' }
+          { number: '584-231-4848', type: 'Home', isPrimary: false },
+          { number: '7', type: 'Work', isPrimary: false },
+          { number: '9', type: 'Cell', isPrimary: false },
+          { number: '5', type: 'Home', isPrimary: false },
+          { number: '7', type: 'Work', isPrimary: false },
+          { number: '9', type: 'Cell', isPrimary: false },
+          { number: '5', type: 'Home', isPrimary: false },
+          { number: '7', type: 'Work', isPrimary: false },
+          { number: '9', type: 'Cell', isPrimary: false }
         ],
         active: false
       },
@@ -72,9 +73,9 @@ export class ContactListComponent implements OnInit {
         profilePictureSrc: '../../../assets/contact-photos/contact-4.jpg',
         company: 'test',
         phoneNumbers: [
-          { number: '5', type: 'Home' },
-          { number: '7', type: 'Work' },
-          { number: '9', type: 'Cell' }
+          { number: '5', type: 'Home', isPrimary: false },
+          { number: '7', type: 'Work', isPrimary: false },
+          { number: '9', type: 'Cell', isPrimary: false }
         ],
         active: false
       },
@@ -85,9 +86,9 @@ export class ContactListComponent implements OnInit {
         profilePictureSrc: '../../../assets/contact-photos/contact-5.jpg',
         company: 'test',
         phoneNumbers: [
-          { number: '5', type: 'Home' },
-          { number: '7', type: 'Work' },
-          { number: '9', type: 'Cell' }
+          { number: '5', type: 'Home', isPrimary: false },
+          { number: '7', type: 'Work', isPrimary: false },
+          { number: '9', type: 'Cell', isPrimary: false }
         ],
         active: false
       }
@@ -98,10 +99,10 @@ export class ContactListComponent implements OnInit {
     this.addContactForm = this.formBuilder.group({
       photo: [''],
       salutation: [''],
-      firstName: [''],
-      lastName: [''],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       company: [''],
-      phone: [''],
+      phone: ['', Validators.required],
     });
 
     this.selectedContactService.selectedContact()
@@ -118,6 +119,13 @@ export class ContactListComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
+    console.log('submit');
+
+    if (this.addContactForm.invalid) {
+      return;
+    }
+
     const formFields = this.addContactForm.controls;
     this.contacts.push({
       profilePictureSrc: formFields.photo.value === '' ? '../../../assets/contact-photos/default-profile.png' : formFields.photo.value,

@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { routes } from './contacts-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateContactComponent } from './create-contact/create-contact.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContactsComponent,
     ContactDetailsComponent,
     ContactComponent,
-    ContactPhotoComponent
+    ContactPhotoComponent,
+    CreateContactComponent
   ],
   imports: [
     CommonModule,

@@ -22,12 +22,9 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['']);
     }
 
-    const passwordValidators = [Validators.required];
-    const usernameValidators = [Validators.required];
-
     this.loginForm = this.formBuilder.group({
-      username: ['', usernameValidators],
-      password: ['', passwordValidators]
+      username: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 

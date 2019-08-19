@@ -21,10 +21,18 @@
     <input type="text" formControlName="photo" placeholder="Photo">
     <input type="text" formControlName="salutation" placeholder="Salutation">
     <input type="text" formControlName="firstName" placeholder="First Name">
+    <label class="error-text" [ngClass]="{'hidden': !(submitted && addContactForm.controls.username.errors)}">
+      First name is required</label>
     <input type="text" formControlName="lastName" placeholder="Last Name">
+    <label class="error-text" [ngClass]="{'hidden': !(submitted && addContactForm.controls.username.errors)}">
+      Last name is required</label>
     <input type="text" formControlName="company" placeholder="Company">
     <input type="text" formControlName="phone" placeholder="Phone">
-    <button type="button" class="" (click)="modal.hide()">Close</button>
-    <button type="submit" class="" (click)="modal.hide()">Save</button>
+    <label class="error-text" [ngClass]="{'hidden': !(submitted && addContactForm.controls.username.errors)}">
+      Phone number is required</label>
+    <div class="buttons">
+      <button type="button" class="" (click)="modal.hide()">Close</button>
+      <button type="submit" class="primary" (click)="submitted ? onSubmit() : modal.hide()">Save</button>
+    </div>
   </form>
 </app-modal>
