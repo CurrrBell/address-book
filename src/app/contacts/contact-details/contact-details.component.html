@@ -1,8 +1,18 @@
 <ng-container *ngIf="contact else empty">
-  <button (click)="goBack()">back</button>
-  <button class="primary" (click)="goBack()">back</button>
-  <button class="secondary" (click)="goBack()">back</button>
-  {{contact.firstName}}
+  <button *ngIf="isMobile" (click)="goBack()">back</button>
+  <app-contact-photo [src]="contact.profilePictureSrc"></app-contact-photo>
+  <span class="name">{{contact.salutation + ' ' + contact.firstName + ' ' + contact.lastName}}</span>
+  <span class="company">{{contact.company}}</span>
+  <div class="contact-info">
+    <span *ngFor="let phoneNumber of contact.phoneNumbers" [ngClass]="{
+      'home-phone': phoneNumber.type === 'Home',
+      'work-phone': phoneNumber.type === 'Work',
+      'cell-phone': phoneNumber.type === 'Cell'
+    }">
+      {{phoneNumber.type + ': ' + phoneNumber.number}}
+    </span>
+  </div>
+
 </ng-container>
 <ng-template #empty>
   No contact
