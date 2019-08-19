@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class ContactComponent implements OnInit {
   @Input() contact: Contact;
   @HostBinding('class.active') active = false;
+  thing = true;
 
   constructor(
     private readonly router: Router,

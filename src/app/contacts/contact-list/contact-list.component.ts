@@ -25,7 +25,7 @@ export class ContactListComponent implements OnInit {
         lastName: 'Glass',
         salutation: 'Ms.',
         profilePictureSrc: '../../../assets/contact-photos/contact-1.jpg',
-        company: 'AccuLynx',
+        company: 'test',
         phoneNumbers: [
           { number: '5', type: 'Home' },
           { number: '7', type: 'Work' },
@@ -38,7 +38,7 @@ export class ContactListComponent implements OnInit {
         lastName: 'Kraft',
         salutation: 'Mr.',
         profilePictureSrc: '../../../assets/contact-photos/contact-2.jpg',
-        company: 'AccuLynx',
+        company: 'test',
         phoneNumbers: [
           { number: '5', type: 'Home' },
           { number: '7', type: 'Work' },
@@ -51,7 +51,7 @@ export class ContactListComponent implements OnInit {
         lastName: 'Sheen',
         salutation: 'Mr.',
         profilePictureSrc: '../../../assets/contact-photos/contact-3.jpg',
-        company: 'AccuLynx',
+        company: 'test',
         phoneNumbers: [
           { number: '584-231-4848', type: 'Home' },
           { number: '7', type: 'Work' },
@@ -70,7 +70,7 @@ export class ContactListComponent implements OnInit {
         lastName: 'Patrick',
         salutation: 'Mr.',
         profilePictureSrc: '../../../assets/contact-photos/contact-4.jpg',
-        company: 'AccuLynx',
+        company: 'test',
         phoneNumbers: [
           { number: '5', type: 'Home' },
           { number: '7', type: 'Work' },
@@ -83,7 +83,7 @@ export class ContactListComponent implements OnInit {
         lastName: 'Engram',
         salutation: 'Mr.',
         profilePictureSrc: '../../../assets/contact-photos/contact-5.jpg',
-        company: 'AccuLynx',
+        company: 'test',
         phoneNumbers: [
           { number: '5', type: 'Home' },
           { number: '7', type: 'Work' },

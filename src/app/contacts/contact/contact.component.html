@@ -4,7 +4,11 @@
   <span>{{contact.company}}</span>
 </div>
 <div class="contact-info">
-  <span *ngFor="let phoneNumber of contact.phoneNumbers">
+  <span *ngFor="let phoneNumber of contact.phoneNumbers" [ngClass]="{
+    'home-phone': phoneNumber.type === 'Home',
+    'work-phone': phoneNumber.type === 'Work',
+    'cell-phone': phoneNumber.type === 'Cell'
+  }">
     {{phoneNumber.type + ': ' + phoneNumber.number}}
   </span>
 </div>
