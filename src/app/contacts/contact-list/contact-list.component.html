@@ -14,10 +14,10 @@
 
 
 <app-modal #modal>
-  <header class="app-modal-header">
+  <header class="modal-header">
     <h1>Add Contact</h1>
   </header>
-  <form [formGroup]="addContactForm" (ngSubmit)="onSubmit()" class="app-modal-body">
+  <form [formGroup]="addContactForm" (ngSubmit)="onSubmit()" class="modal-body">
     <input type="text" id="photo" formControlName="photo" placeholder="Photo">
     <input type="text" formControlName="salutation" placeholder="Salutation">
     <div class="first-name">

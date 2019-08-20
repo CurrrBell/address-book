@@ -4,10 +4,10 @@
 </nav>
 
 <app-modal #modal>
-  <header class="app-modal-header">
+  <header class="modal-header">
     <h1>Settings</h1>
   </header>
-  <form [formGroup]="userSettingsForm" (ngSubmit)="onSubmit()" class="app-modal-body">
+  <form [formGroup]="userSettingsForm" (ngSubmit)="onSubmit()" class="modal-body">
     <input type="text" formControlName="username" placeholder="Photo">
     <div class="buttons">
       <button type="button" (click)="modal.hide()">Close</button>

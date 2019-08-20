@@ -15,6 +15,9 @@ export class AuthService {
 
   authenticate(username: string, password: string): boolean {
     this.username = username;
+
+    // * make actual call to fancy auth web service
+
     this.authenticated$.next(true);
 
     return true;

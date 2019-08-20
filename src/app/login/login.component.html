@@ -6,8 +6,8 @@
     <input type="text" formControlName="username" placeholder="Username" />
     <label class="error-text" [ngClass]="{'hidden': !(submitted && loginForm.controls.username.errors)}">Username is
       required</label>
-    <input type=" password" formControlName="password" placeholder="Password" />
-    <label class="error-text" [ngClass]="{'hidden': !(submitted && loginForm.controls.username.errors)}">Password is
+    <input type="password" formControlName="password" placeholder="Password" />
+    <label class="error-text" [ngClass]="{'hidden': !(submitted && loginForm.controls.password.errors)}">Password is
       required</label>
     <button type="submit" class="primary">login</button>
   </form>
