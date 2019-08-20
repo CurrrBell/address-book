@@ -13,50 +13,5 @@
 </ng-template>
 
 
-<app-modal #modal>
-  <header class="modal-header">
-    <h1>Add Contact</h1>
-  </header>
-  <form [formGroup]="addContactForm" (ngSubmit)="onSubmit()" class="modal-body">
-    <input type="text" id="photo" formControlName="photo" placeholder="Photo">
-    <input type="text" formControlName="salutation" placeholder="Salutation">
-    <div class="first-name">
-      <input type="text" formControlName="firstName" placeholder="First Name">
-      <label class="error-text" [ngClass]="{'hidden': !(submitted && addContactForm.controls.firstName.errors)}">
-        First name is required</label>
-    </div>
-    <div class="last-name">
-      <input type="text" formControlName="lastName" placeholder="Last Name">
-      <label class="error-text" [ngClass]="{'hidden': !(submitted && addContactForm.controls.lastName.errors)}">
-        Last name is required</label>
-    </div>
 
-    <input type="text" formControlName="company" placeholder="Company">
-    <div class="phone-numbers-row" formArrayName="phoneNumbers">
-      <div class="phone-numbers" *ngFor="let number of phoneNumbers.controls; let i=index" [formGroupName]="i">
-        <input type="text" class="phone-number" formControlName="number" placeholder="Phone">
-
-        <select formControlName="type">
-          <option value="" disabled selected hidden>Type</option>
-          <option *ngFor="let type of phoneNumberTypes;let j = index" [value]="phoneNumberTypes[j]">
-            {{phoneNumberTypes[j]}}
-          </option>
-        </select>
-
-        <label for="isPrimary"><input type="radio" formControlName="isPrimary" name="isPrimary">Primary</label>
-        <button type="button" (click)="addPhoneNumber()">add</button>
-        <label class="error-text"
-          [ngClass]="{'hidden': !(submitted && (phoneNumbers.length <= 1 || phoneNumbers.valid))}">
-          Phone number and type are required</label>
-
-      </div>
-
-    </div>
-
-    <div class="buttons">
-
-      <button type="button" (click)="modal.hide()">Close</button>
-      <button type="submit" class="primary" (click)="addContactForm.invalid ? {} : modal.hide()">Save</button>
-    </div>
-  </form>
-</app-modal>
+<app-create-contact #modal></app-create-contact>

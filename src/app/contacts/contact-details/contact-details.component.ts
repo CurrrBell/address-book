@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectedContactService } from '../selected-contact/selected-contact.service';
+import { SelectedContactService } from '../services/selected-contact/selected-contact.service';
 import { Contact } from '../types/contact';
 import { ResponsiveService } from 'src/app/shared/responsive-service/responsive.service';
 import { Router } from '@angular/router';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../types/contact';
-import { SelectedContactService } from '../selected-contact/selected-contact.service';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { SelectedContactService } from '../services/selected-contact/selected-contact.service';
+import { CreateContactService } from '../services/create-contact/create-contact.service';
 
 @Component({
   selector: 'app-contact-list',
@@ -11,13 +11,11 @@ import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 export class ContactListComponent implements OnInit {
   contacts: Contact[];
   selectedContact: Contact;
-  addContactForm: FormGroup;
-  submitted = false;
   noDataMessage = 'No contacts to show';
 
   constructor(
     private readonly selectedContactService: SelectedContactService,
-    private readonly formBuilder: FormBuilder
+    private readonly createContactService: CreateContactService
   ) {
     this.contacts = [
       {
@@ -95,7 +93,12 @@ export class ContactListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initForm();
+    this.createContactService.newContact()
+      .subscribe(contact => {
+        if (contact) {
+          this.contacts.push(contact);
+        }
+      })
 
     this.selectedContactService.selectedContact()
       .subscribe(contact => {
@@ -114,57 +117,5 @@ export class ContactListComponent implements OnInit {
     this.contacts = this.contacts.filter(item => {
       return item !== toDelete;
     })
-  }
-
-  get phoneNumbers() {
-    return this.addContactForm.get('phoneNumbers') as FormArray;
-  }
-
-  get phoneNumberTypes() {
-    return ['Home', 'Work', 'Cell'];
-  }
-
-  initForm() {
-    this.submitted = false;
-    this.addContactForm = this.formBuilder.group({
-      photo: [''],
-      salutation: [''],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      company: [''],
-      phoneNumbers: this.formBuilder.array([
-        this.createPhoneNumber()
-      ])
-    });
-  }
-
-  createPhoneNumber() {
-    return this.formBuilder.group({ number: [''], type: [''], isPrimary: false });
-  }
-
-  addPhoneNumber() {
-    this.phoneNumbers.push(this.createPhoneNumber());
-  }
-
-  onSubmit() {
-    this.submitted = true;
-
-    if (this.addContactForm.invalid) {
-      return;
-    }
-
-    const formFields = this.addContactForm.controls;
-    console.log(formFields);
-    this.contacts.push({
-      profilePictureSrc: formFields.photo.value === '' ? '../../../assets/contact-photos/default-profile.png' : formFields.photo.value,
-      salutation: formFields.salutation.value,
-      firstName: formFields.firstName.value,
-      lastName: formFields.lastName.value,
-      company: formFields.company.value,
-      phoneNumbers: formFields.phoneNumbers['controls'].map(item => item.value),
-      active: false
-    });
-
-    this.initForm();
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, HostBinding, HostListener, Output, EventEmitter } from '@angular/core';
 import { Contact } from '../types/contact';
-import { SelectedContactService } from '../selected-contact/selected-contact.service';
+import { SelectedContactService } from '../services/selected-contact/selected-contact.service';
 import { ResponsiveService } from 'src/app/shared/responsive-service/responsive.service';
 import { Router } from '@angular/router';
 
