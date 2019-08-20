@@ -22,7 +22,7 @@ export class AuthService {
 
   getUser(): string {
     if (this.username === undefined) {
-      return 'username';
+      return 'Username';
     }
     return this.username;
   }

@@ -1,5 +1,5 @@
 <nav>
-  {{username}}
+  <span>{{username}}</span>
   <i class="material-icons" (click)="modal.show()">settings</i>
 </nav>
 
@@ -9,7 +9,9 @@
   </header>
   <form [formGroup]="userSettingsForm" (ngSubmit)="onSubmit()" class="app-modal-body">
     <input type="text" formControlName="username" placeholder="Photo">
-    <button type="button" class="" (click)="modal.hide()">Close</button>
-    <button type="submit" class="" (click)="modal.hide()">Save</button>
+    <div class="buttons">
+      <button type="button" (click)="modal.hide()">Close</button>
+      <button type="submit" class="primary" (click)="modal.hide()">Save</button>
+    </div>
   </form>
 </app-modal>

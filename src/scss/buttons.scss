@@ -33,6 +33,14 @@ button.secondary {
   color: inherit;
 }
 
+.buttons {
+  margin-top: 20px;
+}
+
+.buttons button {
+  margin: 0 5px;
+}
+
 .fab-button {
   color: inherit;
   background-color: $secondary;
