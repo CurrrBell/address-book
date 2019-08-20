@@ -18,29 +18,37 @@
     <h1>Add Contact</h1>
   </header>
   <form [formGroup]="addContactForm" (ngSubmit)="onSubmit()" class="app-modal-body">
-    <input type="text" formControlName="photo" placeholder="Photo">
+    <input type="text" id="photo" formControlName="photo" placeholder="Photo">
     <input type="text" formControlName="salutation" placeholder="Salutation">
-    <input type="text" formControlName="firstName" placeholder="First Name">
-    <label class="error-text" [ngClass]="{'hidden': !(submitted && addContactForm.controls.firstName.errors)}">
-      First name is required</label>
-    <input type="text" formControlName="lastName" placeholder="Last Name">
-    <label class="error-text" [ngClass]="{'hidden': !(submitted && addContactForm.controls.lastName.errors)}">
-      Last name is required</label>
+    <div class="first-name">
+      <input type="text" formControlName="firstName" placeholder="First Name">
+      <label class="error-text" [ngClass]="{'hidden': !(submitted && addContactForm.controls.firstName.errors)}">
+        First name is required</label>
+    </div>
+    <div class="last-name">
+      <input type="text" formControlName="lastName" placeholder="Last Name">
+      <label class="error-text" [ngClass]="{'hidden': !(submitted && addContactForm.controls.lastName.errors)}">
+        Last name is required</label>
+    </div>
+
     <input type="text" formControlName="company" placeholder="Company">
-    <div formArrayName="phoneNumbers">
-      <div class="form-group" *ngFor="let number of phoneNumbers.controls; let i=index" [formGroupName]="i">
-        <input type="text" formControlName="number" placeholder="Phone">
+    <div class="phone-numbers-row" formArrayName="phoneNumbers">
+      <div class="phone-numbers" *ngFor="let number of phoneNumbers.controls; let i=index" [formGroupName]="i">
+        <input type="text" class="phone-number" formControlName="number" placeholder="Phone">
+
         <select formControlName="type">
+          <option value="" disabled selected hidden>Type</option>
           <option *ngFor="let type of phoneNumberTypes;let j = index" [value]="phoneNumberTypes[j]">
             {{phoneNumberTypes[j]}}
           </option>
         </select>
-        <input type="radio" formControlName="isPrimary" name="isPrimary">
-        Primary
+
+        <label for="isPrimary"><input type="radio" formControlName="isPrimary" name="isPrimary">Primary</label>
+        <button type="button" (click)="addPhoneNumber()">add</button>
         <label class="error-text"
           [ngClass]="{'hidden': !(submitted && (phoneNumbers.length <= 1 || phoneNumbers.valid))}">
           Phone number and type are required</label>
-        <button type="button" (click)="addPhoneNumber()">add</button>
+
       </div>
 
     </div>

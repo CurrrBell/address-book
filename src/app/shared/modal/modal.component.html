@@ -1,7 +1,5 @@
 <div class="modal" [ngStyle]="{'display': hidden ? 'none' : 'block', 'opacity': visibleAnimate ? 1 : 0}">
-  <header class="modal-header">
-    <ng-content select=".app-modal-header"></ng-content>
-  </header>
+  <ng-content select=".app-modal-header"></ng-content>
   <div class="modal-body">
     <ng-content select=".app-modal-body"></ng-content>
   </div>
