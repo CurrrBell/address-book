@@ -68,15 +68,18 @@ export class CreateContactComponent implements OnInit {
     }
 
     const formFields = this.addContactForm.controls;
-    this.createContactService.create({
-      profilePictureSrc: formFields.photo.value === '' ? '../../../assets/contact-photos/default-profile.png' : formFields.photo.value,
-      salutation: formFields.salutation.value,
-      firstName: formFields.firstName.value,
-      lastName: formFields.lastName.value,
-      company: formFields.company.value,
-      phoneNumbers: formFields.phoneNumbers['controls'].map(item => item.value),
-      active: false
-    } as Contact);
+
+    this.createContactService.create(
+      {
+        profilePictureSrc: formFields.photo.value === '' ? '../../../assets/contact-photos/default-profile.png' : formFields.photo.value,
+        salutation: formFields.salutation.value,
+        firstName: formFields.firstName.value,
+        lastName: formFields.lastName.value,
+        company: formFields.company.value,
+        phoneNumbers: formFields.phoneNumbers['controls'].map(item => item.value),
+        active: false
+      } as Contact
+    );
 
     this.initForm();
   }
