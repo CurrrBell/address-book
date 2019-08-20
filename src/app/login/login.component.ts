@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private readonly router: Router,
     private readonly formBuilder: FormBuilder,
-    private readonly authService: AuthService) { }
+    private readonly authService: AuthService
+  ) { }
 
   ngOnInit() {
     if (this.authService.isAuthenticated()) {

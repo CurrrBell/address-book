@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class ContactComponent implements OnInit {
   @Input() contact: Contact;
+  @Output() readonly delete = new EventEmitter<Contact>();
   @HostBinding('class.active') active = false;
-  thing = true;
 
   constructor(
     private readonly router: Router,
@@ -20,7 +20,10 @@ export class ContactComponent implements OnInit {
     private readonly responsiveService: ResponsiveService
   ) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  deleteContact() {
+    this.delete.emit(this.contact);
   }
 
   @HostListener('click')

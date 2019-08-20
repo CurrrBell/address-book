@@ -110,6 +110,12 @@ export class ContactListComponent implements OnInit {
       });
   }
 
+  deleteContact(toDelete: Contact) {
+    this.contacts = this.contacts.filter(item => {
+      return item !== toDelete;
+    })
+  }
+
   get phoneNumbers() {
     return this.addContactForm.get('phoneNumbers') as FormArray;
   }

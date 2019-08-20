@@ -9,7 +9,7 @@
 </button>
 
 <ng-template #itemTemplate let-contact>
-  <app-contact [contact]="contact"></app-contact>
+  <app-contact [contact]="contact" (delete)="deleteContact($event)"></app-contact>
 </ng-template>
 
 

@@ -2,7 +2,7 @@
 
 :host {
   display: grid;
-  grid-template-columns: 150px 300px 1fr;
+  grid-template-columns: 150px 300px 1fr 20px;
   grid-template-rows: 128px;
   padding: 10px 30px;
 }
@@ -15,6 +15,10 @@
 :host:hover {
   background-color: #ddd;
   cursor: pointer;
+
+  i {
+    opacity: 1;
+  }
 }
 
 :host * {
@@ -49,4 +53,8 @@
 
 .cell-phone {
   color: green;
+}
+
+i {
+  opacity: 0;
 }
