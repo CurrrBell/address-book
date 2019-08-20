@@ -1,7 +1,7 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Contact } from '../types/contact';
 import { SelectedContactService } from '../selected-contact/selected-contact.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-list',
@@ -17,8 +17,7 @@ export class ContactListComponent implements OnInit {
 
   constructor(
     private readonly selectedContactService: SelectedContactService,
-    private readonly formBuilder: FormBuilder,
-    private readonly changeDetectorRef: ChangeDetectorRef
+    private readonly formBuilder: FormBuilder
   ) {
     this.contacts = [
       {
@@ -96,14 +95,7 @@ export class ContactListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.addContactForm = this.formBuilder.group({
-      photo: [''],
-      salutation: [''],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      company: [''],
-      phone: ['', Validators.required]
-    });
+    this.initForm();
 
     this.selectedContactService.selectedContact()
       .subscribe(contact => {
@@ -118,25 +110,55 @@ export class ContactListComponent implements OnInit {
       });
   }
 
+  get phoneNumbers() {
+    return this.addContactForm.get('phoneNumbers') as FormArray;
+  }
+
+  get phoneNumberTypes() {
+    return ['Home', 'Work', 'Cell'];
+  }
+
+  initForm() {
+    this.submitted = false;
+    this.addContactForm = this.formBuilder.group({
+      photo: [''],
+      salutation: [''],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      company: [''],
+      phoneNumbers: this.formBuilder.array([
+        this.createPhoneNumber()
+      ])
+    });
+  }
+
+  createPhoneNumber() {
+    return this.formBuilder.group({ number: [''], type: [''], isPrimary: false });
+  }
+
+  addPhoneNumber() {
+    this.phoneNumbers.push(this.createPhoneNumber());
+  }
+
   onSubmit() {
     this.submitted = true;
-    console.log('submit');
 
     if (this.addContactForm.invalid) {
       return;
     }
 
     const formFields = this.addContactForm.controls;
+    console.log(formFields);
     this.contacts.push({
       profilePictureSrc: formFields.photo.value === '' ? '../../../assets/contact-photos/default-profile.png' : formFields.photo.value,
       salutation: formFields.salutation.value,
       firstName: formFields.firstName.value,
       lastName: formFields.lastName.value,
       company: formFields.company.value,
-      phoneNumbers: [{ number: formFields.phone.value, type: 'home', isPrimary: false }],
+      phoneNumbers: formFields.phoneNumbers['controls'].map(item => item.value),
       active: false
     });
 
-    this.changeDetectorRef.detectChanges();
+    this.initForm();
   }
 }

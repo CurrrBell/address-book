@@ -27,11 +27,27 @@
     <label class="error-text" [ngClass]="{'hidden': !(submitted && addContactForm.controls.lastName.errors)}">
       Last name is required</label>
     <input type="text" formControlName="company" placeholder="Company">
-    <input type="text" formControlName="phone" placeholder="Phone">
-    <label class="error-text" [ngClass]="{'hidden': !(submitted && addContactForm.controls.phone.errors)}">
-      Phone number is required</label>
+    <div formArrayName="phoneNumbers">
+      <div class="form-group" *ngFor="let number of phoneNumbers.controls; let i=index" [formGroupName]="i">
+        <input type="text" formControlName="number" placeholder="Phone">
+        <select formControlName="type">
+          <option *ngFor="let type of phoneNumberTypes;let j = index" [value]="phoneNumberTypes[j]">
+            {{phoneNumberTypes[j]}}
+          </option>
+        </select>
+        <input type="radio" formControlName="isPrimary" name="isPrimary">
+        Primary
+        <label class="error-text"
+          [ngClass]="{'hidden': !(submitted && (phoneNumbers.length <= 1 || phoneNumbers.valid))}">
+          Phone number and type are required</label>
+        <button type="button" (click)="addPhoneNumber()">add</button>
+      </div>
+
+    </div>
+
     <div class="buttons">
-      <button type="button" class="" (click)="modal.hide()">Close</button>
+
+      <button type="button" (click)="modal.hide()">Close</button>
       <button type="submit" class="primary" (click)="addContactForm.invalid ? {} : modal.hide()">Save</button>
     </div>
   </form>
