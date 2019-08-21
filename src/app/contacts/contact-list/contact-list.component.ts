@@ -23,7 +23,7 @@ export class ContactListComponent implements OnInit {
         lastName: 'Glass',
         salutation: 'Ms.',
         profilePictureSrc: '../../../assets/contact-photos/contact-1.jpg',
-        company: 'test',
+        company: 'AccuLynx',
         phoneNumbers: [
           { number: '5', type: 'Home', isPrimary: false },
           { number: '7', type: 'Work', isPrimary: false },
@@ -36,7 +36,7 @@ export class ContactListComponent implements OnInit {
         lastName: 'Kraft',
         salutation: 'Mr.',
         profilePictureSrc: '../../../assets/contact-photos/contact-2.jpg',
-        company: 'test',
+        company: 'AccuLynx',
         phoneNumbers: [
           { number: '5', type: 'Home', isPrimary: false },
           { number: '7', type: 'Work', isPrimary: false },
@@ -49,7 +49,7 @@ export class ContactListComponent implements OnInit {
         lastName: 'Sheen',
         salutation: 'Mr.',
         profilePictureSrc: '../../../assets/contact-photos/contact-3.jpg',
-        company: 'test',
+        company: 'AccuLynx',
         phoneNumbers: [
           { number: '584-231-4848', type: 'Home', isPrimary: false },
           { number: '7', type: 'Work', isPrimary: false },
@@ -68,7 +68,7 @@ export class ContactListComponent implements OnInit {
         lastName: 'Patrick',
         salutation: 'Mr.',
         profilePictureSrc: '../../../assets/contact-photos/contact-4.jpg',
-        company: 'test',
+        company: 'AccuLynx',
         phoneNumbers: [
           { number: '5', type: 'Home', isPrimary: false },
           { number: '7', type: 'Work', isPrimary: false },
@@ -81,7 +81,7 @@ export class ContactListComponent implements OnInit {
         lastName: 'Engram',
         salutation: 'Mr.',
         profilePictureSrc: '../../../assets/contact-photos/contact-5.jpg',
-        company: 'test',
+        company: 'AccuLynx',
         phoneNumbers: [
           { number: '5', type: 'Home', isPrimary: false },
           { number: '7', type: 'Work', isPrimary: false },
