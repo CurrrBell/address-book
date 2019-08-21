@@ -1,4 +1,4 @@
-<ng-container *ngIf="data else empty">
+<ng-container *ngIf="data.length > 0 else empty">
   <ng-container *ngFor="let item of data">
     <ng-container *ngTemplateOutlet="itemTemplate; context:{$implicit: item}">
     </ng-container>

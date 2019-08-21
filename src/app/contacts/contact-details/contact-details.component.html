@@ -1,5 +1,5 @@
+<button *ngIf="isMobile" (click)="goBack()">back</button>
 <ng-container *ngIf="contact else empty">
-  <button *ngIf="isMobile" (click)="goBack()">back</button>
   <app-contact-photo [src]="contact.profilePictureSrc"></app-contact-photo>
   <span class="name">{{contact.salutation + ' ' + contact.firstName + ' ' + contact.lastName}}</span>
   <span class="company">{{contact.company}}</span>

@@ -29,3 +29,14 @@
   flex-wrap: wrap;
   align-content: flex-start;
 }
+
+@media only screen and (max-width: $mobile-cutoff) {
+  :host {
+    width: calc(100% - 40px); // subtract padding
+    height: calc(100% - 62px);
+  }
+
+  button {
+    align-self: flex-start;
+  }
+}
