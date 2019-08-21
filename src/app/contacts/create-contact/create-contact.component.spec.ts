@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateContactComponent } from './create-contact.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('CreateContactComponent', () => {
   let component: CreateContactComponent;
@@ -8,9 +10,10 @@ describe('CreateContactComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateContactComponent ]
+      declarations: [CreateContactComponent],
+      imports: [FormsModule, ReactiveFormsModule, SharedModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -6,7 +6,7 @@ import { Component, OnInit, Input, TemplateRef, HostBinding } from '@angular/cor
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  @Input() readonly data: any[];
+  @Input() readonly data: any[] = [];
   @Input() readonly itemTemplate: TemplateRef<any>;
   @Input() readonly noDataMessage = 'No data';
   @HostBinding('class') class = 'list';

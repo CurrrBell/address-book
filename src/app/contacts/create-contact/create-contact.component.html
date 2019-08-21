@@ -3,7 +3,7 @@
     <h1>Add Contact</h1>
   </header>
   <form [formGroup]="addContactForm" (ngSubmit)="onSubmit()" class="modal-body">
-    <input type="text" id="photo" formControlName="photo" placeholder="Photo">
+    <input type="text" id="photo" formControlName="photo" placeholder="Photo uri">
     <input type="text" formControlName="salutation" placeholder="Salutation">
     <div class="first-name">
       <input type="text" formControlName="firstName" placeholder="First Name">

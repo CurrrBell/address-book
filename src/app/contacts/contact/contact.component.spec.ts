@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ContactComponent } from './contact.component';
+import { ContactPhotoComponent } from '../contact-photo/contact-photo.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
@@ -8,14 +10,16 @@ describe('ContactComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContactComponent ]
+      declarations: [ContactComponent, ContactPhotoComponent],
+      imports: [RouterTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ContactComponent);
     component = fixture.componentInstance;
+    component.contact = { firstName: '', lastName: '', salutation: '', company: '', profilePictureSrc: '', phoneNumbers: [], active: false };
     fixture.detectChanges();
   });
 
