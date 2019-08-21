@@ -25,9 +25,9 @@ export class ContactListComponent implements OnInit {
         profilePictureSrc: '../../../assets/contact-photos/contact-1.jpg',
         company: 'AccuLynx',
         phoneNumbers: [
-          { number: '5', type: 'Home', isPrimary: false },
-          { number: '7', type: 'Work', isPrimary: false },
-          { number: '9', type: 'Cell', isPrimary: false }
+          { number: '584-231-4848', type: 'Home', isPrimary: false },
+          { number: '722-833-0192', type: 'Work', isPrimary: false },
+          { number: '949-518-1889', type: 'Cell', isPrimary: false }
         ],
         active: false
       },
@@ -38,9 +38,9 @@ export class ContactListComponent implements OnInit {
         profilePictureSrc: '../../../assets/contact-photos/contact-2.jpg',
         company: 'AccuLynx',
         phoneNumbers: [
-          { number: '5', type: 'Home', isPrimary: false },
-          { number: '7', type: 'Work', isPrimary: false },
-          { number: '9', type: 'Cell', isPrimary: false }
+          { number: '584-231-4848', type: 'Home', isPrimary: false },
+          { number: '722-833-0192', type: 'Work', isPrimary: false },
+          { number: '949-518-1889', type: 'Cell', isPrimary: false }
         ],
         active: false
       },
@@ -52,14 +52,14 @@ export class ContactListComponent implements OnInit {
         company: 'AccuLynx',
         phoneNumbers: [
           { number: '584-231-4848', type: 'Home', isPrimary: false },
-          { number: '7', type: 'Work', isPrimary: false },
-          { number: '9', type: 'Cell', isPrimary: false },
-          { number: '5', type: 'Home', isPrimary: false },
-          { number: '7', type: 'Work', isPrimary: false },
-          { number: '9', type: 'Cell', isPrimary: false },
-          { number: '5', type: 'Home', isPrimary: false },
-          { number: '7', type: 'Work', isPrimary: false },
-          { number: '9', type: 'Cell', isPrimary: false }
+          { number: '722-833-0192', type: 'Work', isPrimary: false },
+          { number: '949-518-1889', type: 'Cell', isPrimary: false },
+          { number: '584-231-4848', type: 'Home', isPrimary: false },
+          { number: '722-833-0192', type: 'Work', isPrimary: false },
+          { number: '949-518-1889', type: 'Cell', isPrimary: false },
+          { number: '584-231-4848', type: 'Home', isPrimary: false },
+          { number: '722-833-0192', type: 'Work', isPrimary: false },
+          { number: '949-518-1889', type: 'Cell', isPrimary: false }
         ],
         active: false
       },
@@ -70,9 +70,9 @@ export class ContactListComponent implements OnInit {
         profilePictureSrc: '../../../assets/contact-photos/contact-4.jpg',
         company: 'AccuLynx',
         phoneNumbers: [
-          { number: '5', type: 'Home', isPrimary: false },
-          { number: '7', type: 'Work', isPrimary: false },
-          { number: '9', type: 'Cell', isPrimary: false }
+          { number: '584-231-4848', type: 'Home', isPrimary: false },
+          { number: '722-833-0192', type: 'Work', isPrimary: false },
+          { number: '949-518-1889', type: 'Cell', isPrimary: false }
         ],
         active: false
       },
@@ -83,9 +83,9 @@ export class ContactListComponent implements OnInit {
         profilePictureSrc: '../../../assets/contact-photos/contact-5.jpg',
         company: 'AccuLynx',
         phoneNumbers: [
-          { number: '5', type: 'Home', isPrimary: false },
-          { number: '7', type: 'Work', isPrimary: false },
-          { number: '9', type: 'Cell', isPrimary: false }
+          { number: '584-231-4848', type: 'Home', isPrimary: false },
+          { number: '722-833-0192', type: 'Work', isPrimary: false },
+          { number: '949-518-1889', type: 'Cell', isPrimary: false }
         ],
         active: false
       }
