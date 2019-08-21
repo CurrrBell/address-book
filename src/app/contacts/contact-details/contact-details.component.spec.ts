@@ -26,4 +26,22 @@ describe('ContactDetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show empty state with no data', () => {
+    component.contact = null;
+    fixture.detectChanges();
+
+    const emptyState = fixture.nativeElement.querySelector('.empty-state');
+
+    expect(emptyState).toBeTruthy();
+  });
+
+  it('should hide empty state with data', () => {
+    component.contact = { firstName: '', lastName: '', salutation: '', company: '', phoneNumbers: [], profilePictureSrc: '', active: false };
+    fixture.detectChanges();
+
+    const emptyState = fixture.nativeElement.querySelector('.empty-state');
+
+    expect(emptyState).toBeFalsy();
+  });
 });

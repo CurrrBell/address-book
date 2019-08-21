@@ -9,11 +9,15 @@ export class AuthService {
   private authenticated$: BehaviorSubject<boolean>;
 
   constructor() {
-    this.authenticated$ = new BehaviorSubject(true);
+    this.authenticated$ = new BehaviorSubject(false);
 
   }
 
   authenticate(username: string, password: string): boolean {
+    if(!username || !password || username === '' || password === ''){
+      return false;
+    }
+    
     this.username = username;
 
     // * make actual call to fancy auth web service

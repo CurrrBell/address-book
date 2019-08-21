@@ -31,4 +31,22 @@ describe('ContactsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show ContactDetails on desktop', () => {
+    component.isMobile = false;
+    fixture.detectChanges();
+
+    const contactDetails = fixture.nativeElement.querySelector('app-contact-details');
+
+    expect(contactDetails).toBeTruthy();
+  })
+
+  it('should hide ContactDetails on mobile', () => {
+    component.isMobile = true;
+    fixture.detectChanges();
+
+    const contactDetails = fixture.nativeElement.querySelector('app-contact-details');
+
+    expect(contactDetails).toBeFalsy();
+  });
 });

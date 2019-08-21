@@ -8,9 +8,9 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListComponent ]
+      declarations: [ListComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,4 +22,22 @@ describe('ListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show empty state', () => {
+    component.data = [];
+    fixture.detectChanges();
+
+    const emptyState = fixture.nativeElement.querySelector('.empty-message');
+
+    expect(emptyState).toBeTruthy();
+  });
+
+  it('should hide empty state when given data', () => {
+    component.data = ['thing'];
+    fixture.detectChanges();
+
+    const emptyState = fixture.nativeElement.querySelector('.empty-message');
+
+    expect(emptyState).toBeFalsy();
+  })
 });
